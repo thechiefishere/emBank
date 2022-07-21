@@ -1,0 +1,45 @@
+.Sidebar {
+    position: fixed;
+    top: 7vh;
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    transition: .5s ease-out;
+}
+.Sidebar_show {
+    height: 100vh;
+}
+.Sidebar-Info {
+    padding: 15px;
+    height: 35vh;
+    background-color: rgb(243, 235, 235);
+
+}
+.Sidebar-Info section {
+    margin-top: 50px;
+    display: flex;
+}
+.Sidebar-Info section > div {
+    margin-right: 120px;
+}
+.Sidebar-Info section > div li{
+    margin: 15px 0px;
+    padding: 5px;
+}
+.Sidebar-Info section > div li:hover {
+    background-color: #fff;
+    border-radius: 5px;
+    color: red;
+}
+.Sidebar-Backdrop {
+    background-color: #000;
+    height: 65vh;
+    width: 100%;
+    opacity: .1;
+}
+
+@media (min-width: 992px) {
+    .Sidebar {
+        display: none;
+    }
+}

@@ -20,3 +20,21 @@
 .Navbar-Logo span:last-of-type {
     color: red;
 }
+.Navbar-Navs {
+    display: none;
+}
+.Navbar-Category {
+    display: flex;
+    margin-right: 25px;
+}
+.Navbar-Category h1 {
+    text-transform: capitalize;
+    margin-bottom: 0px;
+}
+
+@media (min-width: 992px) {
+    .Navbar-Navs {
+        display: flex;
+        cursor: pointer;
+    }
+}

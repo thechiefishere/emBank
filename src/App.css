@@ -4,3 +4,15 @@
 .Icon_map {
     color: green;
 }
+.Button {
+    padding: 8px;
+    border-radius: 10px;
+}
+.Button_signIn {
+    background-color: var(--primary_color);
+    margin-right: 20px;
+    padding: 8px 30px;
+}
+.Button_openAccount {
+    background-color: var(--bodyBg_color);
+}

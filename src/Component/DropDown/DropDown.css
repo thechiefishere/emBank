@@ -1,0 +1,16 @@
+.DropDown {
+    background-color: #fff;
+    width: 200px;
+    padding: 20px;
+    border-radius: 15px;
+    position: absolute;
+    top: 40px;
+    left: 36%;
+    display: none;
+}
+.DropDown_show {
+    display: block;
+}
+.DropDown li {
+    margin: 20px 0px;
+}
