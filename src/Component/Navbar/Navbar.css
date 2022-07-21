@@ -1,0 +1,22 @@
+.Navbar {
+    height: 7vh;
+    background-color: #fff;
+    padding: 2vh 5%;
+}
+.Navbar-Components {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Navbar-Logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+.Navbar-Logo span:first-of-type {
+    color: green;
+}
+.Navbar-Logo span:last-of-type {
+    color: red;
+}
