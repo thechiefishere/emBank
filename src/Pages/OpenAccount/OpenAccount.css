@@ -1,6 +1,6 @@
 .OpenAccount-Components {
     background-color: #fff;
-    width: 450px;
+    width: 90%;
     margin: 2vh auto;
     border-radius: 20px;
     padding: 50px;
@@ -8,4 +8,10 @@
 }
 .OpenAccount-ReRoute {
     margin-top: 14vh;
+}
+
+@media (min-width: 550px) {
+    .OpenAccount-Components {
+        width: 450px;
+    }
 }

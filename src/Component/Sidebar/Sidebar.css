@@ -1,6 +1,6 @@
 .Sidebar {
     position: fixed;
-    top: 7vh;
+    top: 9vh;
     width: 100%;
     height: 0px;
     overflow: hidden;
@@ -11,7 +11,7 @@
 }
 .Sidebar-Info {
     padding: 15px;
-    height: 40vh;
+    height: 60vh;
     background-color: rgb(243, 235, 235);
 
 }

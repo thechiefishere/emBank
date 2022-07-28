@@ -3,7 +3,7 @@
 }
 .Deposit-Components {
     background-color: #fff;
-    width: 450px;
+    width: 90%;
     height: 380px;
     margin: 2vh auto;
     border-radius: 20px;
@@ -17,4 +17,10 @@
 }
 .Deposit-Button {
     margin-top: 30px !important;
+}
+
+@media (min-width: 550px) {
+    .Depost-Components {
+        width: 450px;
+    }
 }

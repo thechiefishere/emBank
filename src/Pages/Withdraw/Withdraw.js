@@ -101,7 +101,6 @@ export class Withdraw extends Component {
 
   renderLoadingGif() {
     const { showLoading, error } = this.state;
-    const { user } = this.props;
 
     const showImage =
       showLoading && error === '' ? (
