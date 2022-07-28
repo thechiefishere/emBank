@@ -12,11 +12,13 @@ export class Deposit extends Component {
     this.state = {
       amountToDeposit: '',
       error: '',
+      showLoading: false,
     };
   }
 
   async handleDepositClick(evt) {
     evt.preventDefault();
+    this.setState({ error: '', showLoading: true });
     const { amountToDeposit } = this.state;
     const { user, setNotificationMessage, setUser } = this.props;
     const { token } = user;
@@ -97,12 +99,27 @@ export class Deposit extends Component {
     return <div className={`Error ${showError}`}>{error}</div>;
   }
 
+  renderLoadingGif() {
+    const { showLoading, error } = this.state;
+    const { user } = this.props;
+
+    const showImage =
+      showLoading && error === '' ? (
+        <img src='/loading.gif' alt='Loading' className='Loading' />
+      ) : (
+        ''
+      );
+
+    return showImage;
+  }
+
   renderDeposit() {
     return (
       <section className='Deposit-Components'>
         <RiLuggageDepositFill className='Deposit-UserIcon' />
         {this.renderForm()}
         {this.renderError()}
+        {this.renderLoadingGif()}
       </section>
     );
   }

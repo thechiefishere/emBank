@@ -15,11 +15,13 @@ export class SignIn extends Component {
       email: '',
       password: '',
       error: '',
+      showLoading: false,
     };
   }
 
   async handleLoginClick(evt) {
     evt.preventDefault();
+    this.setState({ ...this.state, error: '', showLoading: true });
     const { email, password } = this.state;
     try {
       const data = await fetch('https://embank.herokuapp.com/', {
@@ -115,12 +117,27 @@ export class SignIn extends Component {
     return <div className={`Error ${showError}`}>{error}</div>;
   }
 
+  renderLoadingGif() {
+    const { showLoading, error } = this.state;
+    const { user } = this.props;
+
+    const showImage =
+      showLoading && user === null && error === '' ? (
+        <img src='/loading.gif' alt='Loading' className='Loading' />
+      ) : (
+        ''
+      );
+
+    return showImage;
+  }
+
   renderSignIn() {
     return (
       <section className='SignIn-Components'>
         <FaRegUser className='SignIn-UserIcon' />
         {this.renderForm()}
         {this.renderError()}
+        {this.renderLoadingGif()}
         <div className='SignIn-ReRoute'>
           <p>Not banking with us?</p>
           <button className='Button Button_openAccount Button_question'>
@@ -143,6 +160,13 @@ export class SignIn extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  const { user } = state;
+  return {
+    user,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     setUser: (user) => dispatch(setUser(user)),
@@ -151,4 +175,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(withRouter(SignIn));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignIn));

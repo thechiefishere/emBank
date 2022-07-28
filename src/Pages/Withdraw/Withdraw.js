@@ -12,11 +12,13 @@ export class Withdraw extends Component {
     this.state = {
       amountToWithdraw: '',
       error: '',
+      showLoading: false,
     };
   }
 
   async handleWithdrawClick(evt) {
     evt.preventDefault();
+    this.setState({ error: '', showLoading: true });
     const { amountToWithdraw } = this.state;
     const { user, setNotificationMessage, setUser } = this.props;
     const { token } = user;
@@ -97,12 +99,27 @@ export class Withdraw extends Component {
     return <div className={`Error ${showError}`}>{error}</div>;
   }
 
+  renderLoadingGif() {
+    const { showLoading, error } = this.state;
+    const { user } = this.props;
+
+    const showImage =
+      showLoading && error === '' ? (
+        <img src='/loading.gif' alt='Loading' className='Loading' />
+      ) : (
+        ''
+      );
+
+    return showImage;
+  }
+
   renderWithdraw() {
     return (
       <section className='Withdraw-Components'>
         <RiLuggageDepositFill className='Withdraw-UserIcon' />
         {this.renderForm()}
         {this.renderError()}
+        {this.renderLoadingGif()}
       </section>
     );
   }

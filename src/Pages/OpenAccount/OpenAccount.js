@@ -17,11 +17,13 @@ export class OpenAccount extends Component {
       phoneNumber: '',
       password: '',
       error: '',
+      showLoading: false,
     };
   }
 
   async handleAccountOpening(evt) {
     evt.preventDefault();
+    this.setState({ ...this.state, error: '', showLoading: true });
     const { name, email, phoneNumber, password } = this.state;
     try {
       const data = await fetch('https://embank.herokuapp.com/', {
@@ -144,11 +146,26 @@ export class OpenAccount extends Component {
     return <div className={`Error ${showError}`}>{error}</div>;
   }
 
+  renderLoadingGif() {
+    const { showLoading, error } = this.state;
+    const { user } = this.props;
+
+    const showImage =
+      showLoading && user === null && error === '' ? (
+        <img src='/loading.gif' alt='Loading' className='Loading' />
+      ) : (
+        ''
+      );
+
+    return showImage;
+  }
+
   renderOpenAccountComponent() {
     return (
       <section className='OpenAccount-Components'>
         {this.renderForm()}
         {this.renderError()}
+        {this.renderLoadingGif()}
         <div className='OpenAccount-ReRoute'>
           <p>Already have an Account?</p>
           <button className='Button Button_openAccount Button_question'>
@@ -169,6 +186,13 @@ export class OpenAccount extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  const { user } = state;
+  return {
+    user,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     setUser: (user) => dispatch(setUser(user)),
@@ -177,4 +201,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(withRouter(OpenAccount));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(OpenAccount));
