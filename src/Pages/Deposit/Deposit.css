@@ -1,21 +1,20 @@
-.SignIn-Info {
-    margin: 5px 0px 40px 0px;
-    text-align: center;
-    color: red;
+.Deposit {
+    margin-top: 20vh !important;
 }
-.SignIn-Components {
+.Deposit-Components {
     background-color: #fff;
     width: 450px;
-    height: 580px;
+    height: 380px;
     margin: 2vh auto;
     border-radius: 20px;
     padding: 50px;
     text-align: center;
+
 }
-.SignIn-UserIcon {
+.Deposit-UserIcon {
     font-size: 4em;
     margin-bottom: 70px;
 }
-.SignIn-ReRoute {
-    margin-top: 8vh;
+.Deposit-Button {
+    margin-top: 30px !important;
 }

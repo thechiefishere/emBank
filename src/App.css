@@ -5,14 +5,85 @@
     color: green;
 }
 .Button {
-    padding: 8px;
     border-radius: 10px;
+    border: none;
+    margin: 0px 10px;
 }
 .Button_signIn {
     background-color: var(--primary_color);
-    margin-right: 20px;
-    padding: 8px 30px;
 }
 .Button_openAccount {
     background-color: var(--bodyBg_color);
+}
+.Button_form {
+    width: 100%;
+    height: 4vh;
+    margin-left: 15px;
+    background-color: var(--primary_color);
+    font-size: 1.2em;
+}
+.Button_link {
+    margin: 0px;
+    display: block;
+    padding: 8px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #000;
+}
+.Button_question {
+    padding: 7px;
+}
+.Button_logOut {
+    background-color: var(--primary_color);
+    font-size: 1.1em;
+    padding: 5px 10px;
+}
+.Section-Header {
+    text-align: center;
+    margin-top: 10vh;
+}
+.FormGroup {
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--primary_color);
+    margin-bottom: 40px;
+    margin-left: 15px;
+}
+.FormGroup input {
+    border: none;
+    line-height: 18px;
+    font-size: .7em;
+    margin-left: 10px;
+    width: 100%;
+}
+.FormGroup input:focus {
+    outline: none;
+}
+
+.Error {
+    color: red;
+    font-size: 1.2em;
+    display: none;
+}
+.Error_show {
+    display: block;
+}
+.Notification {
+    color: rgb(41, 70, 236);
+    width: 40%;
+    border-radius: 20px;
+    font-size: 1.2em; 
+    background-color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 9vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 992px) {
+    .Icon_map {
+        margin-left: 20px;
+    }
 }

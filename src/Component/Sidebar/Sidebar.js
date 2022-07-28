@@ -1,26 +1,66 @@
 import React, { Component } from 'react';
 import './Sidebar.css';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { navItems } from '../../data';
+import { setUser, toggleSidebar } from '../../Redux/actions';
 
 export class Sidebar extends Component {
+  handleLogOut() {
+    const { setUser, toggleSidebar } = this.props;
+
+    setUser(null);
+    toggleSidebar();
+    localStorage.removeItem('embankCustomerData');
+  }
+
   renderButtons() {
+    const { toggleSidebar, user } = this.props;
+    if (user !== null) {
+      return (
+        <div className='Sidebar-Buttons'>
+          <button
+            className='Button Button_logOut'
+            onClick={() => this.handleLogOut()}
+          >
+            Log out
+          </button>
+        </div>
+      );
+    }
     return (
       <div className='Sidebar-Buttons'>
-        <button className='Button Button_signIn'>Sign In</button>
-        <button className='Button Button_openAccount'>Open Account</button>
+        <button
+          className='Button Button_signIn'
+          onClick={() => toggleSidebar()}
+        >
+          <Link to='/signin' className='Button_link'>
+            Sign In
+          </Link>
+        </button>
+        <button
+          className='Button Button_openAccount'
+          onClick={() => toggleSidebar()}
+        >
+          <Link to='/openaccount' className='Button_link'>
+            Open Account
+          </Link>
+        </button>
       </div>
     );
   }
 
   renderFeatures() {
+    const { toggleSidebar } = this.props;
     return (
       <div>
         <h1>Features</h1>
         <ul>
           {navItems[0].links.map((feature, index) => (
-            <li key={index}>{feature}</li>
+            <li key={index} onClick={() => toggleSidebar()}>
+              <Link to={`/${feature.toLocaleLowerCase()}`}>{feature}</Link>
+            </li>
           ))}
         </ul>
       </div>
@@ -68,10 +108,18 @@ export class Sidebar extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { isSidebarOpen } = state;
+  const { isSidebarOpen, user } = state;
   return {
     isSidebarOpen,
+    user,
   };
 };
 
-export default connect(mapStateToProps)(Sidebar);
+const mapDispatchToState = (dispatch) => {
+  return {
+    toggleSidebar: () => dispatch(toggleSidebar()),
+    setUser: (user) => dispatch(setUser(user)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToState)(Sidebar);

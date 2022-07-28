@@ -11,8 +11,14 @@
 .Navbar-Logo {
     display: flex;
     align-items: center;
-    font-size: 1.5em;
     font-weight: 700;
+}
+.Navbar-LogoLink {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #000;
+    display: block;
+    margin-right: 10%;
 }
 .Navbar-Logo span:first-of-type {
     color: green;
@@ -25,16 +31,47 @@
 }
 .Navbar-Category {
     display: flex;
-    margin-right: 25px;
+    margin-right: 10%;
 }
 .Navbar-Category h1 {
     text-transform: capitalize;
     margin-bottom: 0px;
 }
+.Navbar-Buttons {
+    display: none;
+}
+.Navbar-AccountDetails {
+    display: flex;
+    margin-left: auto;
+    margin-right: 30px;
+}
+.Navbar-AccountField {
+    margin: 0px 12px;
+    font-size: 1.2em;
+}
+.Navbar-AccountField span {
+    margin-left: 5px;
+    font-weight: 700;
+
+}
 
 @media (min-width: 992px) {
+    .Navbar-Components {
+        display: flex;
+        align-items: center;
+    }
+    .Navbar-Logo {
+        margin-right: 15%;
+    }
     .Navbar-Navs {
         display: flex;
         cursor: pointer;
+    }
+    .Navbar-SidebarToggle {
+        display: none;
+    }
+    .Navbar-Buttons {
+        display: block;
+        margin-left: auto;
     }
 }

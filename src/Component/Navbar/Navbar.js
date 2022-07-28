@@ -8,19 +8,25 @@ import {
   setDropDownLeft,
   setLinkBeingHovered,
   setMouseIsHoveringOverNav,
+  setUser,
   toggleSidebar,
 } from '../../Redux/actions';
 
 import { navItems } from '../../data';
+import { Link } from 'react-router-dom';
 
 export class Navbar extends Component {
+  handleLogoClick() {}
+
   renderLogo() {
     return (
-      <div className='Navbar-Logo'>
-        <span>E</span>
-        <BiPlanet />
-        <span>M</span>
-      </div>
+      <Link to='/' className='Navbar-LogoLink'>
+        <div className='Navbar-Logo' onClick={() => this.handleLogoClick()}>
+          <span>E</span>
+          <BiPlanet />
+          <span>M</span>
+        </div>
+      </Link>
     );
   }
 
@@ -33,6 +39,13 @@ export class Navbar extends Component {
     setDropDownLeft(left);
     setLinkBeingHovered(category);
     setMouseIsHoveringOverNav(true);
+  }
+
+  handleLogOut() {
+    const { setUser } = this.props;
+
+    setUser(null);
+    localStorage.removeItem('embankCustomerData');
   }
 
   renderAllLinks() {
@@ -59,12 +72,48 @@ export class Navbar extends Component {
     );
   }
 
+  renderButtons() {
+    const { user } = this.props;
+    if (user !== null) {
+      return (
+        <div className='Navbar-Buttons'>
+          <button
+            className='Button Button_logOut'
+            onClick={() => this.handleLogOut()}
+          >
+            Log out
+          </button>
+        </div>
+      );
+    }
+    return (
+      <div className='Navbar-Buttons'>
+        <button className='Button Button_signIn'>
+          <Link to='/signin' className='Button_link'>
+            Sign In
+          </Link>
+        </button>
+        <button className='Button Button_openAccount'>
+          <Link to='/openaccount' className='Button_link'>
+            Open Account
+          </Link>
+        </button>
+      </div>
+    );
+  }
+
   renderHamburger() {
     const { toggleSidebar, isSidebarOpen } = this.props;
     const faBarOrTimes = isSidebarOpen ? (
-      <FaTimes className='Icon' onClick={() => toggleSidebar()} />
+      <FaTimes
+        className='Icon Navbar-SidebarToggle'
+        onClick={() => toggleSidebar()}
+      />
     ) : (
-      <FaBars className='Icon' onClick={() => toggleSidebar()} />
+      <FaBars
+        className='Icon Navbar-SidebarToggle'
+        onClick={() => toggleSidebar()}
+      />
     );
 
     return (
@@ -75,11 +124,33 @@ export class Navbar extends Component {
     );
   }
 
+  renderAccountDetails() {
+    const { user } = this.props;
+    if (user === null) {
+      return '';
+    }
+
+    const { accountNumber, balance } = user;
+    return (
+      <div className='Navbar-AccountDetails'>
+        <p className='Navbar-AccountField'>
+          Acc. Number: <span>{accountNumber}</span>
+        </p>
+
+        <p className='Navbar-AccountField'>
+          Balance: <span>${balance}</span>
+        </p>
+      </div>
+    );
+  }
+
   renderNavbar() {
     return (
       <section className='Navbar-Components'>
         {this.renderLogo()}
         {this.renderAllLinks()}
+        {this.renderAccountDetails()}
+        {this.renderButtons()}
         {this.renderHamburger()}
       </section>
     );
@@ -91,9 +162,10 @@ export class Navbar extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { isSidebarOpen } = state;
+  const { isSidebarOpen, user } = state;
   return {
     isSidebarOpen,
+    user,
   };
 };
 
@@ -104,6 +176,7 @@ const mapDispatchToProps = (dispatch) => {
     setDropDownLeft: (left) => dispatch(setDropDownLeft(left)),
     setMouseIsHoveringOverNav: (isHovering) =>
       dispatch(setMouseIsHoveringOverNav(isHovering)),
+    setUser: (user) => dispatch(setUser(user)),
   };
 };
 

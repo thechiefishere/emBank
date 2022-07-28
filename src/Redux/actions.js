@@ -24,3 +24,17 @@ export const setMouseIsHoveringOverNav = (isHovering) => {
     payload: isHovering,
   };
 };
+
+export const setUser = (user) => {
+  return {
+    type: 'SET_USER',
+    payload: user,
+  };
+};
+
+export const setNotificationMessage = (message) => {
+  return {
+    type: 'SET_NOTIFICATION_MESSAGE',
+    payload: message,
+  };
+};

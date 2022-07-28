@@ -1,7 +1,7 @@
 export const navItems = [
   {
     category: 'Features',
-    links: ['Home', 'Withdraw', 'Save', 'Transaction History'],
+    links: ['Deposit', 'Withdraw', 'Transactions'],
   },
   {
     category: 'Company',

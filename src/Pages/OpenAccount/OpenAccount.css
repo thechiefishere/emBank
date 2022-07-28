@@ -1,0 +1,11 @@
+.OpenAccount-Components {
+    background-color: #fff;
+    width: 450px;
+    margin: 2vh auto;
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+}
+.OpenAccount-ReRoute {
+    margin-top: 14vh;
+}

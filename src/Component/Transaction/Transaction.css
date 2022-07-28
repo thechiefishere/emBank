@@ -1,0 +1,20 @@
+.Transaction {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 5px #666;
+}
+.Transaction-Components p {
+    margin: 8px;
+}
+.Transaction-Components span {
+    margin-right: 60px;
+    color: green;
+}
+.Transaction-Components p:first-child {
+    margin-left: 18px;
+}
+.Transaction-Components p:last-child {
+    margin-left: -5px;
+}

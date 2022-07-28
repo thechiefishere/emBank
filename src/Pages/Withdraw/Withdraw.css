@@ -1,21 +1,20 @@
-.SignIn-Info {
-    margin: 5px 0px 40px 0px;
-    text-align: center;
-    color: red;
+.Withdraw {
+    margin-top: 20vh !important;
 }
-.SignIn-Components {
+.Withdraw-Components {
     background-color: #fff;
     width: 450px;
-    height: 580px;
+    height: 380px;
     margin: 2vh auto;
     border-radius: 20px;
     padding: 50px;
     text-align: center;
+
 }
-.SignIn-UserIcon {
+.Withdraw-UserIcon {
     font-size: 4em;
     margin-bottom: 70px;
 }
-.SignIn-ReRoute {
-    margin-top: 8vh;
+.Withdraw-Button {
+    margin-top: 30px !important;
 }

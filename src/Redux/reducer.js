@@ -3,6 +3,8 @@ const initialState = {
   linkBeingHovered: null,
   dropDownLeft: 0,
   isMouseHoveringOverNav: false,
+  user: JSON.parse(localStorage.getItem('embankCustomerData')) || null,
+  notificationMessage: '',
 };
 
 const reducer = (state = initialState, action) => {
@@ -19,6 +21,16 @@ const reducer = (state = initialState, action) => {
     }
     case 'SET_MOUSE_HOVERING': {
       return { ...state, isMouseHoveringOverNav: action.payload };
+    }
+    case 'SET_USER': {
+      localStorage.setItem(
+        'embankCustomerData',
+        JSON.stringify(action.payload)
+      );
+      return { ...state, user: action.payload };
+    }
+    case 'SET_NOTIFICATION_MESSAGE': {
+      return { ...state, notificationMessage: action.payload };
     }
     default:
       return state;

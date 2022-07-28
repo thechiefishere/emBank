@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { navItems } from '../../data';
 import { getLinksFromCategory } from '../../util/functions';
 import { setMouseIsHoveringOverNav } from '../../Redux/actions';
+import { Link } from 'react-router-dom';
 
 export class DropDown extends Component {
   render() {
@@ -30,7 +31,9 @@ export class DropDown extends Component {
         }}
       >
         {links.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>
+            <Link to={`${item.toLowerCase()}`}>{item}</Link>
+          </li>
         ))}
       </ul>
     );
