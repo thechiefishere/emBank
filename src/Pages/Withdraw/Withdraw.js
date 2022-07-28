@@ -13,6 +13,7 @@ export class Withdraw extends Component {
       amountToWithdraw: '',
       error: '',
       showLoading: false,
+      transactionDone: false,
     };
   }
 
@@ -53,6 +54,7 @@ export class Withdraw extends Component {
         this.setState({
           amountToWithdraw: '',
           error: '',
+          transactionDone: true,
         });
         const customer = { ...user, balance: response.data.withdraw.balance };
         setNotificationMessage(`You made a withdrawal of $${amountToWithdraw}`);
@@ -100,10 +102,10 @@ export class Withdraw extends Component {
   }
 
   renderLoadingGif() {
-    const { showLoading, error } = this.state;
+    const { showLoading, error, transactionDone } = this.state;
 
     const showImage =
-      showLoading && error === '' ? (
+      showLoading && error === '' && !transactionDone ? (
         <img src='/loading.gif' alt='Loading' className='Loading' />
       ) : (
         ''

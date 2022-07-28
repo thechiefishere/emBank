@@ -13,6 +13,7 @@ export class Deposit extends Component {
       amountToDeposit: '',
       error: '',
       showLoading: false,
+      transactionDone: false,
     };
   }
 
@@ -53,6 +54,7 @@ export class Deposit extends Component {
         this.setState({
           amountToDeposit: '',
           error: '',
+          transactionDone: true,
         });
         const customer = { ...user, balance: response.data.deposit.balance };
         setUser(customer);
@@ -100,10 +102,10 @@ export class Deposit extends Component {
   }
 
   renderLoadingGif() {
-    const { showLoading, error } = this.state;
+    const { showLoading, error, transactionDone } = this.state;
 
     const showImage =
-      showLoading && error === '' ? (
+      showLoading && error === '' && !transactionDone ? (
         <img src='/loading.gif' alt='Loading' className='Loading' />
       ) : (
         ''

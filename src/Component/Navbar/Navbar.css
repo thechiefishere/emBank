@@ -1,8 +1,8 @@
 .Navbar {
-    height: 9vh;
+    height: 10vh;
     width: 100%;
     background-color: #fff;
-    padding: 2vh 10px;
+    padding: 1vh 10px;
     box-sizing: border-box;
 }
 .Navbar-Components {
@@ -50,7 +50,7 @@
     margin-right: 8px;
 }
 .Navbar-AccountField {
-    margin: 0px 9px;
+    margin: 0px 7px;
     font-size: 1.2em;
 }
 .Navbar-AccountField span {
