@@ -6,6 +6,7 @@ export class Transaction extends Component {
     const { transactionType, amount, createdAt } = this.props.transaction;
     const date = new Date(Number(createdAt)).toString();
     let type = transactionType.toUpperCase();
+    const amountWithComa = amount.toLocaleString();
 
     return (
       <div className='Transaction-Components'>
@@ -16,7 +17,7 @@ export class Transaction extends Component {
           <span className='Span-2'>Type:</span> {type}
         </p>
         <p>
-          <span className='Span-3'>Amount:</span> ${amount}
+          <span className='Span-3'>Amount:</span> ${amountWithComa}
         </p>
       </div>
     );
