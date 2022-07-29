@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { BiPlanet } from 'react-icons/bi';
 import { GiNigeria } from 'react-icons/gi';
 import { FaBars, FaTimes, FaSortDown } from 'react-icons/fa';
-// import { MdAccountBalance } from 'react-icons/md'
 import './Navbar.css';
 import {
   setDropDownLeft,
@@ -132,15 +131,15 @@ export class Navbar extends Component {
     }
 
     const { accountNumber, balance } = user;
+    const balanceWithComa = balance.toLocaleString();
     return (
       <div className='Navbar-AccountDetails'>
-        {/* <MdAccountBalance /> */}
         <p className='Navbar-AccountField'>
           Acc. Number: <span>{accountNumber}</span>
         </p>
 
         <p className='Navbar-AccountField'>
-          Balance: <span>${balance}</span>
+          Balance: <span>${balanceWithComa}</span>
         </p>
       </div>
     );

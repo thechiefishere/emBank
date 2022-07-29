@@ -13,7 +13,7 @@ export class Transaction extends Component {
           <span className='Span-1'>Date:</span> {date}
         </p>
         <p>
-          <span className='Span-2'>Typpe:</span> {type}
+          <span className='Span-2'>Type:</span> {type}
         </p>
         <p>
           <span className='Span-3'>Amount:</span> ${amount}
