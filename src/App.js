@@ -43,6 +43,10 @@ class App extends Component {
     }
   }
 
+  componentWillUnmount() {
+    localStorage.removeItem('embankCustomerData');
+  }
+
   render() {
     const { linkBeingHovered, user } = this.props;
     const withdrawElement =

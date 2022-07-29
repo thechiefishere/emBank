@@ -3,7 +3,7 @@
     width: 90%;
     margin: 2vh auto;
     border-radius: 20px;
-    padding: 50px;
+    padding: 50px 7%;
     text-align: center;
 }
 .OpenAccount-ReRoute {
@@ -13,5 +13,6 @@
 @media (min-width: 550px) {
     .OpenAccount-Components {
         width: 450px;
+        padding: 50px;
     }
 }

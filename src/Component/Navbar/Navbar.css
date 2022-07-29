@@ -1,8 +1,8 @@
 .Navbar {
-    height: 10vh;
+    height: 7vh;
     width: 100%;
     background-color: #fff;
-    padding: 1vh 10px;
+    padding: 2vh 10px;
     box-sizing: border-box;
 }
 .Navbar-Components {
@@ -52,6 +52,7 @@
 .Navbar-AccountField {
     margin: 0px 7px;
     font-size: 1.2em;
+    display: none;
 }
 .Navbar-AccountField span {
     margin-left: 3px;
@@ -59,7 +60,25 @@
 
 }
 
-@media (min-width: 992px) {
+@media (min-width: 450px) {
+    .Navbar-AccountField:last-of-type {
+        display: block;
+    }
+}
+
+@media (min-width: 550px) {
+    .Navbar {
+        padding: 2vh 4%;
+    }
+}
+
+@media (min-width: 750px) {
+    .Navbar-AccountField:first-of-type {
+        display: block;
+    }
+}
+
+@media (min-width: 1050px) {
     .Navbar-Components {
         display: flex;
         align-items: center;
@@ -77,11 +96,5 @@
     .Navbar-Buttons {
         display: block;
         margin-left: auto;
-    }
-}
-
-@media (min-width: 550px) {
-    .Navbar {
-        padding: 2vh 4%;
     }
 }

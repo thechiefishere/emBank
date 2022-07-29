@@ -9,7 +9,7 @@
     height: 580px;
     margin: 2vh auto;
     border-radius: 20px;
-    padding: 50px;
+    padding: 7%;
     text-align: center;
 }
 .SignIn-UserIcon {
@@ -23,5 +23,6 @@
 @media (min-width: 550px) {
     .SignIn-Components {
         width: 450px;
+        padding: 50px;
     }
 }

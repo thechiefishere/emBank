@@ -1,6 +1,6 @@
 .Sidebar {
     position: fixed;
-    top: 10vh;
+    top: 7vh;
     width: 100%;
     height: 0px;
     overflow: hidden;
@@ -16,11 +16,11 @@
 
 }
 .Sidebar-Info section {
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
 }
 .Sidebar-Info section > div {
-    margin-right: 120px;
+    margin-right: 15%;
 }
 .Sidebar-Info section > div li{
     margin: 15px 0px;
