@@ -4,8 +4,6 @@
    # Use the public IP if the VM is already created
    hosts: all
    user: ubuntu
-   vars:
-    ansible_host_key_checking: false
    become: true
    become_method: sudo
    become_user: root
