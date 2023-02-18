@@ -19,6 +19,10 @@ jobs:
       - image: python:3.7-alpine3.11
     steps:
       - checkout
+      - run: 
+          name: Install openssh
+          command: |
+            apt install openssh-server -y
       - add_ssh_keys:
               # You can get this ID in the section where you registered the SSH Key
               fingerprints: ["75:35:db:3b:e7:d0:14:26:5b:52:69:fc:c3:b1:f1:c1"] 
@@ -34,5 +38,5 @@ jobs:
 workflows:
   myWorkflow:
     jobs:
-      # - create_infrastructure
-      - configure_infrastructure
+      - create_infrastructure
+      # - configure_infrastructure
